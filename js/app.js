@@ -1,0 +1,82 @@
+/* 消费维权服务站 — 弹窗与交互 (vanilla, 与 jQuery 表单逻辑互不干扰) */
+(function () {
+    function ready(fn) {
+        if (document.readyState !== "loading") { fn(); return; }
+        document.addEventListener("DOMContentLoaded", fn);
+    }
+
+    ready(function () {
+        var body = document.body;
+        var openModals = [];
+
+        function openModal(modal) {
+            if (!modal) return;
+            modal.classList.add("is-open");
+            modal.setAttribute("aria-hidden", "false");
+            body.classList.add("modal-lock");
+            body.style.overflow = "hidden";
+            openModals.push(modal);
+            var focusable = modal.querySelector(".gov-modal__close");
+            if (focusable) { try { focusable.focus(); } catch (e) {} }
+        }
+
+        function closeModal(modal) {
+            if (!modal) return;
+            modal.classList.remove("is-open");
+            modal.setAttribute("aria-hidden", "true");
+            openModals = openModals.filter(function (m) { return m !== modal; });
+            if (!openModals.length) {
+                body.classList.remove("modal-lock");
+                body.style.overflow = "";
+            }
+        }
+
+        /* buttons that open a modal by id: [data-open="modalId"] */
+        Array.prototype.forEach.call(document.querySelectorAll("[data-open]"), function (btn) {
+            btn.addEventListener("click", function (e) {
+                e.preventDefault();
+                openModal(document.getElementById(btn.getAttribute("data-open")));
+            });
+        });
+
+        /* article reading modal, populated from each card's hidden full content */
+        var articleModal = document.getElementById("articleModal");
+        var articleTitle = document.getElementById("articleModalTitle");
+        var articleContent = document.getElementById("articleModalContent");
+
+        function openArticle(card) {
+            if (!articleModal) return;
+            var full = card.querySelector(".doc-card__full");
+            var titleEl = card.querySelector(".doc-card__title");
+            articleTitle.textContent = titleEl ? titleEl.textContent.trim() : "内容详情";
+            articleContent.innerHTML = full ? full.innerHTML : "";
+            articleContent.scrollTop = 0;
+            openModal(articleModal);
+        }
+
+        Array.prototype.forEach.call(document.querySelectorAll(".doc-card"), function (card) {
+            card.setAttribute("tabindex", "0");
+            card.setAttribute("role", "button");
+            card.addEventListener("click", function () { openArticle(card); });
+            card.addEventListener("keydown", function (e) {
+                if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openArticle(card); }
+            });
+        });
+
+        /* close: [data-close], backdrop click, Esc */
+        Array.prototype.forEach.call(document.querySelectorAll(".gov-modal"), function (modal) {
+            modal.addEventListener("click", function (e) {
+                if (e.target === modal) closeModal(modal);
+            });
+            Array.prototype.forEach.call(modal.querySelectorAll("[data-close]"), function (btn) {
+                btn.addEventListener("click", function () { closeModal(modal); });
+            });
+        });
+
+        document.addEventListener("keyup", function (e) {
+            if (e.key === "Escape" && openModals.length) {
+                closeModal(openModals[openModals.length - 1]);
+            }
+        });
+    });
+}());

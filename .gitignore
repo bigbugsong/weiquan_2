@@ -1,0 +1,8 @@
+# macOS
+.DS_Store
+
+# Claude Code local tooling/config
+.claude/
+
+# Dev/iteration screenshots (the site's real assets live in images/)
+/*.png

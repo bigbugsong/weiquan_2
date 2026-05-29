@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>消费维权服务站</title>
+    <script src="js/jquery-1.6.1.min.js" type="text/javascript"></script>
+    <link href="css/weiquan.css" rel="stylesheet" type="text/css" />
+    <link href="css/gov.css?v=20260529i" rel="stylesheet" type="text/css" />
+    <script src="js/tijiao.js" type="text/javascript"></script>
+</head>
+<body>
+
+    <!-- ===================== 主视觉（含顶栏品牌行） ===================== -->
+    <section class="gov-hero">
+        <div class="gov-hero__bg" aria-hidden="true"></div>
+
+        <header class="gov-wrap gov-hero__top" role="banner">
+            <img class="gov-hero__crest" src="images/icon_marketingjianguan.png" alt="国家市场监督管理总局" />
+            <div class="gov-hero__authority">
+                <strong>国家市场监督管理总局</strong>
+                <span>STATE ADMINISTRATION FOR MARKET REGULATION</span>
+            </div>
+        </header>
+
+        <div class="gov-wrap gov-hero__inner">
+            <div class="gov-hero__copy">
+                <span class="gov-hero__eyebrow">依法守护 · 阳光维权</span>
+                <h1 class="gov-hero__title">消费维权服务站</h1>
+                <p class="gov-hero__sub">广州市场监督管理局　监制</p>
+                <p class="gov-hero__note">此服务站经广州市场监督管理局批准设立，为唯品会消费者提供咨询、调解与投诉处理服务。</p>
+                <div class="gov-contact">
+                    <div class="gov-contact__group">
+                        <span class="gov-contact__label">联系人</span>
+                        <span class="gov-contact__value">唯品会维权站专员</span>
+                    </div>
+                    <span class="gov-contact__div" aria-hidden="true"></span>
+                    <div class="gov-contact__group">
+                        <span class="gov-contact__label">维权热线</span>
+                        <span class="gov-contact__value gov-contact__tel">020-28341030</span>
+                    </div>
+                </div>
+                <div class="gov-hero__actions">
+                    <button type="button" class="gov-btn gov-btn--primary" data-open="feedbackModal">投诉/反馈</button>
+                    <a class="gov-btn gov-btn--ghost" href="#flow">查看处理流程</a>
+                </div>
+            </div>
+            <div class="gov-hero__art" aria-hidden="true">
+                <img src="images/jianguanrenyuan.png" alt="" />
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== 主体 ===================== -->
+    <main class="gov-main">
+        <div class="gov-wrap">
+
+            <!-- 四卡：制度与职责 -->
+            <section class="doc-section" aria-labelledby="docTitle">
+                <div class="sec-head">
+                    <h2 id="docTitle" class="sec-head__title">服务站制度与职责</h2>
+                    <p class="sec-head__desc">点击任意卡片查看完整条款内容</p>
+                </div>
+                <div class="doc-grid">
+
+                    <article class="doc-card">
+                        <span class="doc-card__tag">职责规程</span>
+                        <h3 class="doc-card__title">工作职责与规程</h3>
+                        <p class="doc-card__lead">受理消费咨询、调解消费纠纷、处理投诉登记，并明确服务站与工作人员的履职规程。</p>
+                        <span class="doc-card__more">查看详情<i></i></span>
+                        <div class="doc-card__full">
+                            <h3>一、工作职责</h3>
+                            <h4>（一）“消费维权服务站”职责</h4>
+                            <p>1.受理、处理消费者的咨询，向消费者提供消费信息服务；受理、处理消费者的建议和意见，不断提高商品和服务质量。</p>
+                            <p>2.受理、处理消费者与本单位的消费纠纷，并做好相应记录。</p>
+                            <p>3.向本单位职工宣传有关消费维权的法律法规。</p>
+                            <p>4.对消费者投诉集中的问题以及涉及本单位的重大、紧急消费纠纷事件，及时向市场监督管理等有关部门反映。</p>
+                            <p>5.定期汇总、报送和分析消费者诉求情况，有针对性地进行防范和加强自律。</p>
+                            <p>6.配合市场监督管理部门开展对消费维权服务站处理消费投诉案件的回访和检查。</p>
+                            <p>7.建立、健全消费纠纷和解与消费侵权赔偿制度、商品质量和服务规范承诺、不合格商品退市等制度。</p>
+                            <p>8.协助检查企业的商品质量、包装、标识、宣传、广告等是否符合国家法律法规的规定，防止损害消费者权益的违法行为发生。</p>
+                            <p>9.处理市场监督管理部门交办的其他消费维权工作。</p>
+                            <h4>（二）“消费维权服务站”工作人员职责</h4>
+                            <p>1.认真学习、宣传法律法规和消费知识。</p>
+                            <p>2.及时受理和解决消费纠纷，并做好记录；情况复杂的，及时向辖区市场监督管理所反映，配合市场监督管理机关处理。</p>
+                            <p>3.督促本企业或经营区域内的经营户自觉履行保护消费者权益的法律义务，对发现的违法经营行为线索，属于市场监督管理部门管辖的及时向辖区市场监督管理所反映，由辖区市场监督管理所按照职能和程序依法处理；属于其他部门管辖的及时向有关部门反映。</p>
+                            <p>4.保持与市场监督管理部门经常性联系，配合市场监督管理部门的监督检查。</p>
+                            <p>5.从事其他与消费者权益保护有关的工作。</p>
+                            <h3>二、工作规程</h3>
+                            <h4>（一）咨询、建议、意见的受理和处理</h4>
+                            <p>1.“消费维权服务站”受理消费者关于商品知识和信息的咨询、有关服务问题的咨询以及其他与维护消费者合法权益有关问题的咨询，并受理消费者关于商品质量、改善服务以及其他与维护消费者合法权益有关的建议和意见。</p>
+                            <p>2.工作人员接受咨询和建议意见时，应热情有礼，使用文明规范语言。</p>
+                            <p>3.“消费维权服务站”受理咨询，能直接答复的，应详细解答；不能直接答复的，在核实、了解后明确回复。</p>
+                            <p>4.“消费维权服务站”受理建议和意见，应认真进行研究，拟出切实可行的方案提供给所在企业，推动企业提高产品质量和改善售后服务。</p>
+                            <h4>（二）消费投诉的受理和处理</h4>
+                            <p>1.“消费维权服务站”受理消费投诉应记录消费者投诉的日期、方式、内容、受理的情况，并在处理完毕后记录处理结果。</p>
+                            <p>2.消费投诉的处理，应在双方自愿的前提下，以公正、合理为原则，通过诚恳协商，依法与消费者达成和解，并填写《“消费维权服务站”消费投诉登记表》，双方签字确认处理结果。</p>
+                            <p>3.自行受理的消费投诉，应当在受理之日起5日内作出处理，并将处理结果回复投诉人；需要延长处理时限的，最长不超过10日；无法达成和解的，应于2个工作日提交由属地市场监督管理所进行调解（需说明未能达成和解的理由），消费者执意向消委会等其他部门进行投诉或向人民法院提起民事诉讼的，不得阻挠。</p>
+                            <p>4.接到各级12315中心交办的消费投诉，应当自案件受理之日起15个工作日内进行调解处理，并将处理结果回复投诉人和交办部门；到期仍无法达成调解一致意见，应向投诉人和交办部门说明情况。</p>
+                            <p>5.对消费投诉反映的事关社会稳定和人民群众生命、财产安全的突发事件、重大事件，“消费维权服务站”应立即向各级12315中心及所在地市场监督管理所报告，并积极配合和协助市场监督管理部门对事件的处理。</p>
+                        </div>
+                    </article>
+
+                    <article class="doc-card">
+                        <span class="doc-card__tag">法规要点</span>
+                        <h3 class="doc-card__title">新消法亮点</h3>
+                        <p class="doc-card__lead">网购七日无理由退货、个人信息保护、向网络平台提供者索赔、缺陷产品召回、举证责任倒置、欺诈三倍赔偿、霸王条款等八项消费者权益要点。</p>
+                        <span class="doc-card__more">查看详情<i></i></span>
+                        <div class="doc-card__full">
+                            <h3>新消法亮点</h3>
+                            <h4>1、网购商品，有权无理由七日内退货</h4>
+                            <p>新消法规定，如果经营者采用网络、电视、电话、邮购等方式销售商品，消费者有权自收到商品之日起七日内退货，且无需说明理由。即，新消法赋予了消费者无理由退货的权利。</p>
+                            <h4>2、更注重保障消费者个人信息</h4>
+                            <p>新消法规定，经营者及其工作人员对收集的消费者个人信息必须严格保密，不得泄露、出售或者非法向他人提供。经营者应当采取技术措施和其他必要措施，确保信息安全，防止消费者个人信息泄露、丢失。</p>
+                            <h4>3、可向网络交易平台提供者索赔</h4>
+                            <p>网络交易平台提供者就是我们通常理解的“电商”，即天猫、淘宝等网购平台，新法规定，如果网络交易平台提供者不能提供侵权的销售者或者服务者的真实名称、地址和有效联系方式的，消费者可向网络交易平台提供者要求赔偿。</p>
+                            <h4>4、缺陷产品召回</h4>
+                            <p>第十九条：经营者发现其提供的商品或者服务存在缺陷，有危及人身、财产安全危险的，应当立即向有关行政部门报告和告知消费者，并采取停止销售、警示、召回、无害化处理、销毁、停止生产或者服务等措施。采取召回措施的，经营者应当承担消费者因商品被召回支出的必要费用。</p>
+                            <h4>5、举证责任倒置</h4>
+                            <p>第二十三条：经营者提供的机动车、计算机、电视机、电冰箱、空调器、洗衣机等耐用商品或者装饰装修等服务，消费者自接受商品或者服务之日起六个月内发现瑕疵，发生争议的，由经营者承担有关瑕疵的举证责任。</p>
+                            <h4>6、遇消费欺诈获三倍赔偿</h4>
+                            <p>第五十五条：经营者提供商品或者服务有欺诈行为的，应当按照消费者的要求增加赔偿其受到的损失，增加赔偿的金额为消费者购买商品的价款或者接受服务的费用的三倍。</p>
+                            <h4>7、明确霸王条款内容无效</h4>
+                            <p>第二十六条：经营者不得以格式条款、通知、声明、店堂告示等方式，作出排除或者限制消费者权利、减轻或者免除经营者责任、加重消费者责任等对消费者不公平、不合理的规定，不得利用格式条款并借助技术手段强制交易。格式条款、通知、声明、店堂告示等含有前款所列内容的，其内容无效。</p>
+                            <h4>8、网店不得“隐身”</h4>
+                            <p>第二十八条：采用网络、电视、电话、邮购等方式提供商品或者服务的经营者，以及提供证券、保险、银行等金融服务的经营者，应当向消费者提供经营地址、联系方式、商品或者服务的数量和质量、价款或者费用、履行期限和方式、安全注意事项和风险警示、售后服务、民事责任等信息。</p>
+                        </div>
+                    </article>
+
+                    <article class="doc-card">
+                        <span class="doc-card__tag">退市制度</span>
+                        <h3 class="doc-card__title">不合格商品下架退市制度</h3>
+                        <p class="doc-card__lead">商品上下架、下架退货、投诉退货处理、溯源究责等四项制度，保障商品质量安全。</p>
+                        <span class="doc-card__more">查看详情<i></i></span>
+                        <div class="doc-card__full">
+                            <h3>不合格商品下架退市制度</h3>
+                            <p>为保障消费者的合法权益，依据《中华人民共和国食品安全法》、《中华人民共和国消费者权益保护法》等法律法规，本企业郑重承诺：</p>
+                            <p>一、商品上、下架制度。商品必须经过本企业的质检部门严格把关后，方能上架销售。商品因质量问题，被政府相关职能部门口头要求门店下架的，经本企业质检部门确认商品确实存在质量问题的，应立即执行下架；被政府相关职能部门书面通知要求下架的，应立即执行下架；执行下架后应及时知会属地市场监督管理部门。</p>
+                            <p>二、下架退货制度。商品执行下架后，消费者对要求退货的，企业第一时间安排、落实退货。下架未销售的商品，应暂存门店或配送中心，并设置区域单独存放，对商品张贴醒目标示，等待相关行政部门进一步的处理通知。企业驻店的质检部门应加大监督抽查力度，防止应下架的商品遗留在货架上；对发生质量问题的同种、同类商品立即进行排查和复核。</p>
+                            <p>三、投诉退货处理制度。消费者投诉要求退货的，企业应由专门的部门和人员负责接待和处理，同时知会属地市场监督管理部门，并做好相应的投诉登记和处理情况的记录。当发生大规模的退货情况或群体性的消费者投诉时，应马上向属地市场监督管理部门报告。</p>
+                            <p>四、溯源究责制度。出现商品质量问题时，企业应主动联系供应商或生产厂家，查究质量问题产生的原因，同时建议其停止进货或生产。尽快与供应商或生产厂家沟通，回收下架暂存在销售企业处的商品，并根据有关行政部门的要求对该批商品进行无害化处理。</p>
+                        </div>
+                    </article>
+
+                    <article class="doc-card">
+                        <span class="doc-card__tag">质量承诺</span>
+                        <h3 class="doc-card__title">商品质量安全承诺书</h3>
+                        <p class="doc-card__lead">经营者作为质量安全第一责任人，对进货查验、台账记录、售后服务等作出的郑重承诺。</p>
+                        <span class="doc-card__more">查看详情<i></i></span>
+                        <div class="doc-card__full">
+                            <h3>商品质量安全承诺书</h3>
+                            <p>为认真贯彻执行《中华人民共和国产品质量法》、《中华人民共和国消费者权益保护法》，维护消费者权益，本店郑重承诺：</p>
+                            <p>一、认真履行经营者必须承担的商品质量安全“第一责任人”职责，诚实守信、文明经商，遵守法律法规的有关规定，自觉维护市场秩序，对本店经营的商品质量安全负责，不损害消费者和其他经营者的合法权益。</p>
+                            <p>二、依法建立健全商品进货查验制度，认真查验供货商的经营资格、产品合格证明、产品标识和商品质量是否符合法定要求，严把商品进货关。</p>
+                            <p>三、依法建立健全商品进销货台帐制度，如实记录、保存进销商品的各种信息和数据，保证本店进货商品的可追溯性和销售商品流向信息的真实性，以防范和控制商品安全风险。</p>
+                            <p>四、建立健全并落实商品质量安全的日常管理制度，不销售“三无”产品、过期商品、变质商品、经监测不合格商品和存在安全隐患的商品。发现问题商品立即下架，停止销售，将问题商品退回供货商，依法为消费者办理退换货手续，同时将登记下架退市的商品名单、数量及处置情况及时向市场监督管理局报告。</p>
+                            <p>五、接受社会各界的监督，加强企业自律，积极配合市场监督管理部门依法履责，规范经营行为，完善售后服务，妥善解决消费投诉和纠纷，共同营造良好的商品质量安全消费环境。</p>
+                        </div>
+                    </article>
+
+                </div>
+            </section>
+
+            <!-- 处理流程 -->
+            <section class="flow-section" id="flow" aria-labelledby="flowTitle">
+                <div class="sec-head">
+                    <h2 id="flowTitle" class="sec-head__title">消费纠纷处理流程</h2>
+                    <p class="sec-head__desc">规范受理、协商调解、转办处理、结案反馈</p>
+                </div>
+                <ol class="flow-steps">
+                    <li class="flow-step">
+                        <span class="flow-step__idx">1</span>
+                        <h4>提出诉求</h4>
+                        <p>消费者反映消费纠纷</p>
+                    </li>
+                    <li class="flow-step">
+                        <span class="flow-step__idx">2</span>
+                        <h4>客服受理</h4>
+                        <p>企业客服受理并协商</p>
+                    </li>
+                    <li class="flow-step">
+                        <span class="flow-step__idx">3</span>
+                        <h4>站点调解</h4>
+                        <p>维权站或 12315 中心介入调解</p>
+                    </li>
+                    <li class="flow-step">
+                        <span class="flow-step__idx">4</span>
+                        <h4>转办处理</h4>
+                        <p>网络所依职能转办处理</p>
+                    </li>
+                    <li class="flow-step">
+                        <span class="flow-step__idx">5</span>
+                        <h4>结案反馈</h4>
+                        <p>处理结果反馈并确认结案</p>
+                    </li>
+                </ol>
+                <p class="flow-note">此服务站经广州市场监督管理局批准设立　监督电话：83786163</p>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- ===================== 页脚 ===================== -->
+    <footer class="gov-footer">
+        <div class="gov-wrap gov-footer__inner">
+            <span class="gov-footer__text">唯品会维权站管理系统</span>
+            <span class="gov-footer__sep" aria-hidden="true">|</span>
+            <a class="gov-footer__login" href="#" data-open="loginModal">登录<i class="gov-footer__arrow" aria-hidden="true"></i></a>
+        </div>
+    </footer>
+
+    <!-- ===================== 阅读弹窗 ===================== -->
+    <div class="gov-modal" id="articleModal" aria-hidden="true">
+        <div class="gov-modal__panel" role="dialog" aria-modal="true" aria-labelledby="articleModalTitle">
+            <button type="button" class="gov-modal__close" data-close aria-label="关闭">×</button>
+            <h2 id="articleModalTitle" class="gov-modal__title"></h2>
+            <div id="articleModalContent" class="gov-modal__body"></div>
+        </div>
+    </div>
+
+    <!-- ===================== 反馈表单弹窗 ===================== -->
+    <div class="gov-modal" id="feedbackModal" aria-hidden="true">
+        <div class="gov-modal__panel" role="dialog" aria-modal="true" aria-labelledby="feedbackTitle">
+            <button type="button" class="gov-modal__close" data-close aria-label="关闭">×</button>
+            <h2 id="feedbackTitle" class="gov-modal__title">在线意见反馈</h2>
+            <p class="gov-modal__hint">请如实填写以下信息，我们将尽快与您联系。</p>
+            <form id="form1" class="gov-form" runat="server">
+                <label for="textid">反馈内容</label>
+                <textarea id="textid" class="gov-field" placeholder="请输入意见反馈内容"></textarea>
+
+                <label for="linkman">联系人</label>
+                <input id="linkman" type="text" class="gov-field" placeholder="您的称呼" />
+
+                <label for="textPhone">手机号码</label>
+                <input id="textPhone" maxlength="11" onkeyup="this.value=this.value.replace(/\D/g,'')"
+                    placeholder="请输入11位手机号码" type="text" class="gov-field" />
+
+                <label for="verifyCode">验证码</label>
+                <div class="gov-captcha">
+                    <input type="text" maxlength="4" id="verifyCode" class="gov-field" placeholder="请输入验证码" />
+                    <img onclick="this.src=this.src+'&'" alt="验证码"
+                        src="https://weiquan.vip.com/index.php?r=message/captcha&" title="点击刷新验证码" id="verifyCodeImg" />
+                </div>
+
+                <button type="button" class="gov-btn gov-btn--primary gov-form__submit" onclick="return Appeal(0);">提交反馈</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ===================== 登录弹窗 ===================== -->
+    <div class="gov-modal" id="loginModal" aria-hidden="true">
+        <div class="gov-modal__panel gov-modal__panel--narrow" role="dialog" aria-modal="true" aria-labelledby="loginTitle">
+            <button type="button" class="gov-modal__close" data-close aria-label="关闭">×</button>
+            <h2 id="loginTitle" class="gov-modal__title">维权站管理系统登录</h2>
+            <form id="login-form" name="LoginForm" runat="server" class="gov-form">
+                <input type="hidden" name="LoginForm[oneKey]" value="3ab1f9224968095ea57dae8709f">
+                <input name="nopwd" type="hidden" id="nopwd" />
+
+                <label for="userName">用户名</label>
+                <input name="LoginForm[username]" type="text" id="userName" class="gov-field" onblur="GetPwdAndChk();" placeholder="请输入用户名" />
+
+                <label for="pwd">密码</label>
+                <input name="LoginForm[password]" type="password" id="pwd" class="gov-field" placeholder="请输入密码" />
+
+                <label for="code">验证码</label>
+                <div class="gov-captcha">
+                    <input name="LoginForm[imgAuthenCode]" type="text" id="code" maxlength="4" class="gov-field" placeholder="请输入验证码" />
+                    <img src="https://weiquan.vip.com/index.php?r=admin/captcha" id="imgAuthenCode" title="点击刷新验证码" alt="验证码" onclick="this.src=this.src+'&'" />
+                </div>
+
+                <label class="gov-check"><input name="LoginForm[rememberMe]" type="checkbox" id="autologin" /><span>记住我</span></label>
+
+                <button type="button" class="gov-btn gov-btn--primary gov-form__submit" onclick="return PwdCheck();">登 录</button>
+            </form>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        window.onload = function onLoginLoaded() {
+            GetLastUser();
+        };
+
+        function GetLastUser() {
+            var id = "49BAC005-7D5B-4231-8CEA-16939BEACD67";
+            var usr = GetCookie(id);
+            if (usr != null) {
+                document.getElementById('userName').value = usr;
+            } else {
+                document.getElementById('userName').value = "";
+            }
+            GetPwdAndChk();
+        }
+
+        function SetPwdAndChk() {
+            var usr = document.getElementById('userName').value;
+            var autologin = document.getElementById("autologin").checked ? "1" : "0";
+            SetLastUser(usr);
+            if (document.getElementById('nopwd').checked) {
+                var pwd = document.getElementById('pwd').value;
+                var expdate = new Date();
+                expdate.setTime(expdate.getTime() + 14 * (24 * 60 * 60 * 1000));
+                SetCookie(usr, pwd, expdate, autologin);
+            } else {
+                ResetCookie();
+            }
+        }
+
+        function SetLastUser(usr) {
+            var id = "49BAC005-7D5B-4231-8CEA-16939BEACD67";
+            var expdate = new Date();
+            expdate.setTime(expdate.getTime() + 14 * (24 * 60 * 60 * 1000));
+            SetCookie(id, usr, expdate);
+        }
+
+        function GetPwdAndChk() {
+            var usr = document.getElementById('userName').value;
+            var pwd = GetCookie(usr);
+            if (pwd != null) {
+                document.getElementById('nopwd').checked = true;
+                document.getElementById('autologin').checked = true;
+                document.getElementById('pwd').value = pwd;
+            } else {
+                document.getElementById('nopwd').checked = false;
+                document.getElementById('autologin').checked = false;
+                document.getElementById('pwd').value = "";
+            }
+        }
+
+        function GetCookie(name) {
+            var arg = name + "=";
+            var alen = arg.length;
+            var clen = document.cookie.length;
+            var i = 0;
+            while (i < clen) {
+                var j = i + alen;
+                if (document.cookie.substring(i, j) == arg) return getCookieVal(j);
+                i = document.cookie.indexOf(" ", i) + 1;
+                if (i == 0) break;
+            }
+            return null;
+        }
+        var isPostBack = "<%= IsPostBack %>";
+
+        function getCookieVal(offset) {
+            var endstr = document.cookie.indexOf(";", offset);
+            if (endstr == -1) endstr = document.cookie.length;
+            return unescape(document.cookie.substring(offset, endstr));
+        }
+
+        function SetCookie(name, value, expires, autologin) {
+            return;
+        }
+
+        function ResetCookie() {
+            var usr = document.getElementById('userName').value;
+            var pwd = document.getElementById('pwd').value;
+            var expdate = new Date();
+            SetCookie(usr, null, expdate);
+        }
+    </script>
+    <script src="js/app.js?v=20260529" type="text/javascript"></script>
+
+</body>
+</html>
