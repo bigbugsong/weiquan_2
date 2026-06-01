@@ -48,8 +48,9 @@
 **表面 / 描边**
 | Token | 值 | 用途 |
 |---|---|---|
-| `--c-paper` | `#f2f6ff` | 浅表面 / flow-note 底 |
-| `--c-paper-2` | `#e8f0ff` | 浅蓝表面（备用 token） |
+| 页面底色 | `#edf3ff` | `body` 背景（hero 蓝底 / footer 白底除外） |
+| `--c-paper` | `#f2f6ff` | 浅表面（tag / 备用） |
+| `--c-paper-2` | `#e8f0ff` | flow-note 底 / 浅蓝表面 |
 | `--c-card` | `#ffffff` | 制度卡片底 |
 | `--c-card-2` | `#fcfdff` | 流程卡片底 |
 | `--c-line` | `#e1eaf8` | 常规描边 |

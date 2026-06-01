@@ -68,10 +68,7 @@ body {
     font-size: 15px;
     line-height: 1.7;
     color: var(--c-ink);
-    background: #f6f9ff;
-    background-image:
-        radial-gradient(120% 60% at 50% -10%, #dfeaff 0%, transparent 60%),
-        linear-gradient(180deg, #eef4ff 0%, #f6f9ff 40%, #ffffff 100%);
+    background: #edf3ff;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
 }
