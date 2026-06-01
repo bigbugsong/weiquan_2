@@ -1,6 +1,6 @@
 /* =====================================================================
    消费维权服务站 — 政务蓝白 · 设计 Token 化
-   对齐 Figma：PC 21032-60 / 手机 21092-2348（同一响应式设计两态）
+   对齐 Figma：PC「维权站PC-web」21184-1544（最新精简版）· 旧稿 21032-60 · 手机 21092-2348
    ===================================================================== */
 
 :root {
@@ -107,16 +107,12 @@ button { font-family: inherit; cursor: pointer; }
     padding-bottom: 4px;
 }
 .gov-hero__crest {
-    width: 44px; height: 44px; object-fit: contain;
+    width: 36px; height: 36px; object-fit: contain;
     filter: drop-shadow(0 2px 6px rgba(0, 0, 0, .3));
 }
-.gov-hero__authority { display: flex; flex-direction: column; line-height: 1.2; }
-.gov-hero__authority strong { font-size: 20px; font-weight: 700; letter-spacing: .08em; }
-.gov-hero__authority span {
-    margin-top: 4px;
-    font-size: 11px; font-weight: 500; letter-spacing: .08em;
-    color: rgba(255, 255, 255, .6);
-}
+/* 顶栏署名：单行中文「广州市市场监督管理局　监制」（对齐 21184-1544） */
+.gov-hero__authority { display: flex; align-items: center; line-height: 1.2; }
+.gov-hero__authority strong { font-size: 20px; font-weight: 500; letter-spacing: .06em; }
 
 .gov-hero__inner {
     position: relative; z-index: 1;
@@ -142,11 +138,6 @@ button { font-family: inherit; cursor: pointer; }
     line-height: 1.08;
     text-shadow: 0 4px 24px rgba(0, 0, 0, .22);
 }
-.gov-hero__sub {
-    margin: 14px 0 0;
-    font-size: 15px; font-weight: 500; letter-spacing: .16em;
-    color: rgba(255, 255, 255, .85);
-}
 .gov-hero__note {
     margin: 4px 0 0;
     font-size: 15px; line-height: 1.85;
@@ -155,7 +146,8 @@ button { font-family: inherit; cursor: pointer; }
 
 /* 联系卡（横向玻璃卡） */
 .gov-contact {
-    display: inline-flex; align-items: center;
+    display: flex; align-items: center;
+    width: 480px; max-width: 100%;
     gap: clamp(20px, 4vw, 40px);
     margin-top: 28px;
     padding: 16px 20px;
@@ -170,7 +162,9 @@ button { font-family: inherit; cursor: pointer; }
 .gov-contact__tel { font-weight: 700; font-variant-numeric: tabular-nums; letter-spacing: .02em; }
 .gov-contact__div { width: 1px; align-self: stretch; min-height: 37px; background: var(--glass-border); }
 
-.gov-hero__actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 24px; }
+/* 单一主按钮：最大宽度 240（对齐 21184-1577）；移动端整宽见 ≤768 覆写 */
+.gov-hero__actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 24px; max-width: 240px; }
+.gov-hero__actions .gov-btn { width: 100%; }
 
 .gov-btn {
     display: inline-flex; align-items: center; justify-content: center;
@@ -218,40 +212,32 @@ button { font-family: inherit; cursor: pointer; }
 }
 .sec-head__desc { margin: 14px 0 0; font-size: 14px; color: var(--c-ink-soft); }
 
-/* ===================== DOC GRID (2x2) ===================== */
-.doc-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+/* ===================== DOC GRID (3 列) ===================== */
+.doc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+/* 制度卡片：默认无描边、无阴影（对齐 21188-2369 状态=默认）；仅悬停浮起 + 投影（投影-3级 0 6px 50px #1B1B1B1A） */
 .doc-card {
     position: relative; overflow: hidden;
     display: flex; flex-direction: column; align-items: flex-start;
     padding: 20px 24px;
     background: var(--c-card);
-    border: 1px solid var(--c-line);
     border-radius: var(--r-card);
-    box-shadow: var(--shadow-sm);
     cursor: pointer;
-    transition: transform .5s var(--ease), box-shadow .5s var(--ease), border-color .3s var(--ease);
+    transition: transform .5s var(--ease), box-shadow .5s var(--ease);
 }
-.doc-card::before {
-    content: ""; position: absolute; left: 0; top: 0; right: 0; height: 4px;
-    background: linear-gradient(90deg, var(--c-accent), var(--c-bright));
-    transform: scaleX(0); transform-origin: left;
-    transition: transform .5s var(--ease);
-}
-.doc-card:hover { transform: translateY(-6px); box-shadow: var(--shadow); border-color: var(--c-line-strong); }
-.doc-card:hover::before { transform: scaleX(1); }
+.doc-card:hover { transform: translateY(-6px); box-shadow: 0 6px 50px rgba(27, 27, 27, .1); }
 .doc-card:focus-visible { outline: 3px solid var(--c-bright); outline-offset: 3px; }
 
-.doc-card__tag {
-    display: inline-block;
-    padding: 4px 12px;
-    font-size: 12px; font-weight: 500; letter-spacing: .06em;
-    color: var(--c-royal);
-    background: var(--c-paper);
-    border: 1px solid var(--c-line-strong);
-    border-radius: var(--r-pill);
+/* 图标 chip：40×40 浅蓝底圆角方块，内含 24×24 线/实心图标（对齐 21184-1544） */
+.doc-card__icon {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 40px; height: 40px;
+    color: var(--c-bright);
+    background: var(--c-paper-2);
+    border-radius: 10px;
 }
-.doc-card__title { margin: 16px 0 0; font-size: 22px; font-weight: 700; letter-spacing: .02em; color: var(--c-navy); }
-.doc-card__lead { margin: 8px 0 18px; font-size: 14px; line-height: 1.8; color: var(--c-ink-soft); }
+.doc-card__icon svg { display: block; width: 24px; height: 24px; }
+.doc-card__title { margin: 16px 0 0; font-size: 20px; font-weight: 600; letter-spacing: .02em; color: var(--c-navy); }
+.doc-card__lead { margin: 8px 0 18px; font-size: 13px; line-height: 1.8; color: var(--c-ink-soft); }
 .doc-card__more {
     margin-top: auto; align-self: center;
     display: inline-flex; align-items: center; gap: 6px;
@@ -282,8 +268,8 @@ button { font-family: inherit; cursor: pointer; }
 .flow-section { margin-top: clamp(52px, 7vw, 76px); }
 .flow-steps {
     list-style: none; margin: 0; padding: 0;
-    display: grid; grid-template-columns: repeat(5, 1fr);
-    gap: 34px;
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 42px;
 }
 .flow-step {
     position: relative;
@@ -296,7 +282,7 @@ button { font-family: inherit; cursor: pointer; }
 }
 .flow-step:not(:last-child)::after {
     content: ""; position: absolute; z-index: 2;
-    right: -20px; top: 50%; margin-top: -6px;
+    right: -27px; top: 50%; margin-top: -6px;
     width: 11px; height: 11px;
     border-top: 2px solid var(--c-sky); border-right: 2px solid var(--c-sky);
     transform: rotate(45deg);
@@ -337,17 +323,16 @@ button { font-family: inherit; cursor: pointer; }
     color: var(--c-footer); font-size: 14px; letter-spacing: .16em;
 }
 .gov-footer__sep { color: var(--c-line-strong); }
+/* 登录按钮（对齐 21204-2583）：默认无底；悬停加 4% 黑色胶囊底；箭头为 → 矢量 */
 .gov-footer__login {
-    display: inline-flex; align-items: center; gap: 7px;
+    display: inline-flex; align-items: center; gap: 4px;
+    padding: 2px 8px;
     color: var(--c-footer); text-decoration: none;
-    transition: color .3s var(--ease);
+    border-radius: var(--r-pill);
+    transition: background-color .3s var(--ease);
 }
-.gov-footer__login:hover { color: var(--c-link); }
-.gov-footer__arrow {
-    width: 6px; height: 6px;
-    border-top: 1.5px solid currentColor; border-right: 1.5px solid currentColor;
-    transform: rotate(45deg);
-}
+.gov-footer__login:hover { background: rgba(27, 27, 27, .04); }
+.gov-footer__arrow { display: block; width: 14px; height: 14px; }
 
 /* ===================== MODALS（统一 token） ===================== */
 .gov-modal {
@@ -365,7 +350,6 @@ button { font-family: inherit; cursor: pointer; }
     background: var(--c-card);
     border-radius: var(--r-card);
     box-shadow: var(--shadow-lg);
-    border-top: 4px solid var(--c-gold);
     animation: modalRise .42s var(--ease);
 }
 .gov-modal__panel--narrow { max-width: 440px; }
@@ -374,12 +358,15 @@ button { font-family: inherit; cursor: pointer; }
     width: 38px; height: 38px;
     font-size: 22px; line-height: 1;
     color: var(--c-ink-soft);
-    background: var(--c-paper);
-    border: 1px solid var(--c-line);
+    background: transparent;
+    border: 0;
     border-radius: 50%;
     transition: background-color .2s, color .2s, transform .3s var(--ease);
 }
-.gov-modal__close:hover { background: var(--c-paper-2); color: var(--c-navy); transform: rotate(90deg); }
+.gov-modal__close:hover { background: rgba(27, 27, 27, .04); color: var(--c-navy); transform: rotate(90deg); }
+/* 打开时自动聚焦不显描边圈；仅键盘 Tab 聚焦才显（可访问性） */
+.gov-modal__close:focus { outline: none; }
+.gov-modal__close:focus-visible { outline: 2px solid var(--c-bright); outline-offset: 2px; }
 .gov-modal__title {
     flex: 0 0 auto; margin: 0;
     padding: 24px 56px 16px 28px;
@@ -438,7 +425,6 @@ textarea.gov-field { min-height: 120px; resize: vertical; line-height: 1.7; }
     .gov-hero__copy > * { opacity: 0; animation: rise .8s var(--ease) forwards; }
     .gov-hero__eyebrow { animation-delay: .05s; }
     .gov-hero__title { animation-delay: .14s; }
-    .gov-hero__sub { animation-delay: .22s; }
     .gov-hero__note { animation-delay: .3s; }
     .gov-contact { animation-delay: .36s; }
     .gov-hero__actions { animation-delay: .42s; }
@@ -447,7 +433,6 @@ textarea.gov-field { min-height: 120px; resize: vertical; line-height: 1.7; }
     .doc-card:nth-child(1) { animation-delay: .06s; }
     .doc-card:nth-child(2) { animation-delay: .14s; }
     .doc-card:nth-child(3) { animation-delay: .22s; }
-    .doc-card:nth-child(4) { animation-delay: .3s; }
 
     @keyframes rise { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
 }
@@ -463,8 +448,8 @@ textarea.gov-field { min-height: 120px; resize: vertical; line-height: 1.7; }
     /* 联系卡整宽（竖线居中分隔两组） */
     .gov-contact { display: flex; width: 100%; justify-content: space-between; align-items: center; }
 
-    /* 按钮纵向整宽 */
-    .gov-hero__actions { flex-direction: column; gap: 14px; }
+    /* 按钮纵向整宽（移动端解除 240 上限） */
+    .gov-hero__actions { flex-direction: column; gap: 14px; max-width: none; }
     .gov-hero__actions .gov-btn { width: 100%; }
 
     /* 卡通形象：响应/手机布局下作为 hero 右下淡水印（10% 透明度），置于内容之后、不挡点击。
@@ -472,8 +457,8 @@ textarea.gov-field { min-height: 120px; resize: vertical; line-height: 1.7; }
     .gov-hero__art { position: absolute; right: 0; bottom: 0; margin-bottom: 0; z-index: 1; opacity: .1; animation: none; pointer-events: none; }
     .gov-hero__art img { width: 200px; }
 
-    /* 制度卡此区间仍 2 列，仅收紧间距（单列在 ≤576） */
-    .doc-grid { gap: 18px; }
+    /* 制度卡此区间收为 2 列、收紧间距（单列在 ≤576） */
+    .doc-grid { grid-template-columns: repeat(2, 1fr); gap: 18px; }
 
     /* 流程竖向行 [圆圈｜标题｜描述]、去箭头 */
     .flow-steps { grid-template-columns: 1fr; gap: 12px; }
@@ -496,8 +481,7 @@ textarea.gov-field { min-height: 120px; resize: vertical; line-height: 1.7; }
 
     .gov-hero__top { gap: 10px; padding-top: calc(14px + env(safe-area-inset-top, 0px)); }
     .gov-hero__crest { width: 32px; height: 32px; }
-    .gov-hero__authority strong { font-size: 15px; }
-    .gov-hero__authority span { font-size: 9px; }
+    .gov-hero__authority strong { font-size: 16px; }
 
     .gov-hero__inner { padding-top: 28px; padding-bottom: 36px; gap: 22px; }
     .gov-hero__title { letter-spacing: .06em; }

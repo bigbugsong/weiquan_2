@@ -50,6 +50,12 @@
             var titleEl = card.querySelector(".doc-card__title");
             articleTitle.textContent = titleEl ? titleEl.textContent.trim() : "内容详情";
             articleContent.innerHTML = full ? full.innerHTML : "";
+            // 去掉与弹窗标题重复的首个标题（避免标题出现两次）
+            var firstEl = articleContent.firstElementChild;
+            if (firstEl && /^H[1-4]$/.test(firstEl.tagName) &&
+                firstEl.textContent.trim() === articleTitle.textContent) {
+                articleContent.removeChild(firstEl);
+            }
             articleContent.scrollTop = 0;
             openModal(articleModal);
         }
