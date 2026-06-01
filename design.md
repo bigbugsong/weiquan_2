@@ -49,7 +49,7 @@
 | Token | 值 | 用途 |
 |---|---|---|
 | `--c-paper` | `#f2f6ff` | 浅表面 / flow-note 底 |
-| `--c-paper-2` | `#e8f0ff` | **卡片图标 chip 底** |
+| `--c-paper-2` | `#e8f0ff` | 浅蓝表面（备用 token） |
 | `--c-card` | `#ffffff` | 制度卡片底 |
 | `--c-card-2` | `#fcfdff` | 流程卡片底 |
 | `--c-line` | `#e1eaf8` | 常规描边 |
@@ -100,7 +100,7 @@
 |---|---|---|
 | `--r-card` | `16px` | 卡片 / 弹窗 / flow-note |
 | `--r-contact` | `8px` | 联系卡 |
-| `--r-field` | `10px` | 输入框 / 验证码（图标 chip 同取 10px） |
+| `--r-field` | `10px` | 输入框 / 验证码 |
 | `--r-pill` | `999px` | eyebrow / 按钮 / 「查看详情」 |
 | `--shadow-sm` | `0 2px 10px rgba(18,45,110,.06)` | 流程步骤卡静止 |
 | `--shadow` | `0 14px 38px rgba(16,49,130,.12)` | 通用悬浮（预留） |
@@ -127,7 +127,7 @@
 
 ### 3.3 制度卡片 `.doc-card`（3 列网格 `.doc-grid`）
 - 结构：图标 chip `.doc-card__icon` → 标题 `.doc-card__title` → 描述 `.doc-card__lead` → 「查看详情」胶囊 `.doc-card__more`（居中，含箭头）→ 隐藏全文 `.doc-card__full`（弹窗数据源）。
-- **图标 chip**：40×40，圆角 10px，底 `--c-paper-2`，内含 24×24 inline SVG，色 `--c-bright`。
+- **图标 chip**：40×40 **圆形**（`border-radius:50%`），底 `rgba(47,107,240,.1)`（品牌蓝 10%），内含 24×24 inline SVG，色 `--c-bright`（对齐 21188-2329）。
   - 工作职责与规程 → 描边「用户」图标
   - 不合格商品下架退市制度 → 描边「盾牌 × 」
   - 商品质量安全承诺书 → 描边「盾牌 ✓」
