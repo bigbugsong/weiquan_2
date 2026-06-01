@@ -137,7 +137,7 @@
 - padding `20px 24px`；卡底 `--c-card`，圆角 `--r-card`。
 
 ### 3.4 处理流程 `.flow-steps`（4 列网格）
-- 步骤 `.flow-step`：序号圆圈 `.flow-step__idx`（46px 实心 `--c-bright`，白字，**无阴影**）+ 标题 `h4`（16/600 `--c-navy`）+ 描述 `p`（13/`--c-ink-soft`）；卡底 `--c-card-2`，**描边 `--c-line`、无阴影**（对齐 21184-1644）。
+- 步骤 `.flow-step`：序号圆圈 `.flow-step__idx`（46px 实心 `--c-bright`，白字，**无阴影**）+ 标题 `h4`（16/600 `--c-navy`）+ 描述 `p`（13/`--c-ink-soft`）；卡底 `--c-card-2`，**无描边、无阴影**（扁平，按需求）。
 - 序号为连续 **1 / 2 / 3 / 4**（原设计稿跳号 1/2/3/5，按需求改为连续编号）。
 - 步间箭头：`.flow-step:not(:last-child)::after` 旋转边框生成「›」（色 `rgba(27,27,27,.5)`），居卡间 42px 间隙。
 - `.flow-note`：整宽，底 `--c-paper-2`、描边 `--c-line-strong`、圆角 `--r-field`(10px)、文字 `--c-ink-soft`/14px 居中。
