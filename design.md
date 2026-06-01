@@ -80,7 +80,7 @@
 | eyebrow 胶囊 | 13px | 500 | letter-spacing .18em |
 | Hero 说明 | 15px | 400 | line-height 1.85 |
 | 联系卡 label / value | 12px / 18px | 400 / 500 | 电话 700，tabular-nums |
-| 段标题 sec-head | `clamp(24px,4vw,32px)` | 700 | letter-spacing .08em |
+| 段标题 sec-head | `clamp(24px,4vw,32px)` | 700 | `#1b1b1b`，letter-spacing .08em |
 | 段副标题 desc | 14px | 400 | `--c-ink-soft` |
 | 卡片标题 | 21px | 600 | `#282828`（letter-spacing .42px） |
 | 卡片描述 lead | 14px | 400 | line-height 1.8，`#5f5f5f` |
@@ -98,9 +98,9 @@
 
 | Token | 值 | 用途 |
 |---|---|---|
-| `--r-card` | `16px` | 卡片 / 弹窗 / flow-note |
+| `--r-card` | `16px` | 卡片 / 弹窗 |
 | `--r-contact` | `8px` | 联系卡 |
-| `--r-field` | `10px` | 输入框 / 验证码 |
+| `--r-field` | `10px` | 输入框 / 验证码 / flow-note |
 | `--r-pill` | `999px` | eyebrow / 按钮 / 「查看详情」 |
 | `--shadow-sm` | `0 2px 10px rgba(18,45,110,.06)` | 小阴影（预留） |
 | `--shadow` | `0 14px 38px rgba(16,49,130,.12)` | 通用悬浮（预留） |
@@ -123,7 +123,7 @@
 - **吉祥物 `.gov-hero__art`**：`jianguanrenyuan.png`，桌面贴底并排（宽 `clamp(170px,24vw,254px)`）；`≤768` 转为右下 10% 水印。
 
 ### 3.2 段标题 `.sec-head`
-居中：标题 `.sec-head__title`（`::after` 渲染 54×4 accent 横条，色 `--c-accent`）+ 副标题 `.sec-head__desc`。
+居中：标题 `.sec-head__title`（`#1b1b1b`，`::after` 渲染 54×4 accent 横条，色 `--c-bright`）+ 副标题 `.sec-head__desc`。
 
 ### 3.3 制度卡片 `.doc-card`（3 列网格 `.doc-grid`）
 - 结构：图标 chip `.doc-card__icon` → 标题 `.doc-card__title` → 描述 `.doc-card__lead` → 「查看详情」`.doc-card__more`（居中含 → 箭头；**默认无外框无底，仅 hover 加 5% 蓝底** `rgba(47,107,240,.05)`，对齐 21188-2159）→ 隐藏全文 `.doc-card__full`（弹窗数据源）。
@@ -137,9 +137,10 @@
 - padding `20px 24px`；卡底 `--c-card`，圆角 `--r-card`。
 
 ### 3.4 处理流程 `.flow-steps`（4 列网格）
-- 步骤 `.flow-step`：序号圆圈 `.flow-step__idx`（46px，白字，底 `--c-bright`）+ 标题 `h4` + 描述 `p`；卡底 `--c-card-2`，**无描边、无阴影**。
+- 步骤 `.flow-step`：序号圆圈 `.flow-step__idx`（46px 实心 `--c-bright`，白字，**无阴影**）+ 标题 `h4`（16/600 `--c-navy`）+ 描述 `p`（13/`--c-ink-soft`）；卡底 `--c-card-2`，**描边 `--c-line`、无阴影**（对齐 21184-1644）。
 - 序号为连续 **1 / 2 / 3 / 4**（原设计稿跳号 1/2/3/5，按需求改为连续编号）。
-- 步间箭头：`.flow-step:not(:last-child)::after` 旋转边框生成「›」，位于卡间 42px 间隙居中。
+- 步间箭头：`.flow-step:not(:last-child)::after` 旋转边框生成「›」（色 `rgba(27,27,27,.5)`），居卡间 42px 间隙。
+- `.flow-note`：整宽，底 `--c-paper-2`、描边 `--c-line-strong`、圆角 `--r-field`(10px)、文字 `--c-ink-soft`/14px 居中。
 - **flow-note**：浅蓝信息条（底 `--c-paper`、字 `--c-royal`），文案「此服务站经广州市市场监督管理局批准设立」。
 
 ### 3.5 页脚 `.gov-footer`
