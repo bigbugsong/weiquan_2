@@ -146,7 +146,7 @@ button { font-family: inherit; cursor: pointer; }
 
 /* 联系卡（横向玻璃卡） */
 .gov-contact {
-    display: flex; align-items: center; justify-content: space-between;
+    display: flex; align-items: center;
     width: 480px; max-width: 100%;
     gap: clamp(20px, 4vw, 40px);
     margin-top: 28px;
@@ -162,8 +162,8 @@ button { font-family: inherit; cursor: pointer; }
 .gov-contact__tel { font-weight: 700; font-variant-numeric: tabular-nums; letter-spacing: .02em; }
 .gov-contact__div { width: 1px; align-self: stretch; min-height: 37px; background: var(--glass-border); }
 
-/* 单一主按钮：与联系卡同宽（≤480 区块，整宽居中），对齐 21184-1544 */
-.gov-hero__actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 24px; max-width: 480px; }
+/* 单一主按钮：最大宽度 240（对齐 21184-1577）；移动端整宽见 ≤768 覆写 */
+.gov-hero__actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 24px; max-width: 240px; }
 .gov-hero__actions .gov-btn { width: 100%; }
 
 .gov-btn {
@@ -214,25 +214,17 @@ button { font-family: inherit; cursor: pointer; }
 
 /* ===================== DOC GRID (3 列) ===================== */
 .doc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+/* 制度卡片：默认无描边、无阴影（对齐 21188-2369 状态=默认）；仅悬停浮起 + 投影（投影-3级 0 6px 50px #1B1B1B1A） */
 .doc-card {
     position: relative; overflow: hidden;
     display: flex; flex-direction: column; align-items: flex-start;
     padding: 20px 24px;
     background: var(--c-card);
-    border: 1px solid var(--c-line);
     border-radius: var(--r-card);
-    box-shadow: var(--shadow-sm);
     cursor: pointer;
-    transition: transform .5s var(--ease), box-shadow .5s var(--ease), border-color .3s var(--ease);
+    transition: transform .5s var(--ease), box-shadow .5s var(--ease);
 }
-.doc-card::before {
-    content: ""; position: absolute; left: 0; top: 0; right: 0; height: 4px;
-    background: linear-gradient(90deg, var(--c-accent), var(--c-bright));
-    transform: scaleX(0); transform-origin: left;
-    transition: transform .5s var(--ease);
-}
-.doc-card:hover { transform: translateY(-6px); box-shadow: var(--shadow); border-color: var(--c-line-strong); }
-.doc-card:hover::before { transform: scaleX(1); }
+.doc-card:hover { transform: translateY(-6px); box-shadow: 0 6px 50px rgba(27, 27, 27, .1); }
 .doc-card:focus-visible { outline: 3px solid var(--c-bright); outline-offset: 3px; }
 
 /* 图标 chip：40×40 浅蓝底圆角方块，内含 24×24 线/实心图标（对齐 21184-1544） */
@@ -455,8 +447,8 @@ textarea.gov-field { min-height: 120px; resize: vertical; line-height: 1.7; }
     /* 联系卡整宽（竖线居中分隔两组） */
     .gov-contact { display: flex; width: 100%; justify-content: space-between; align-items: center; }
 
-    /* 按钮纵向整宽 */
-    .gov-hero__actions { flex-direction: column; gap: 14px; }
+    /* 按钮纵向整宽（移动端解除 240 上限） */
+    .gov-hero__actions { flex-direction: column; gap: 14px; max-width: none; }
     .gov-hero__actions .gov-btn { width: 100%; }
 
     /* 卡通形象：响应/手机布局下作为 hero 右下淡水印（10% 透明度），置于内容之后、不挡点击。
