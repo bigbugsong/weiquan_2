@@ -102,8 +102,9 @@
 | `--r-contact` | `8px` | 联系卡 |
 | `--r-field` | `10px` | 输入框 / 验证码（图标 chip 同取 10px） |
 | `--r-pill` | `999px` | eyebrow / 按钮 / 「查看详情」 |
-| `--shadow-sm` | `0 2px 10px rgba(18,45,110,.06)` | 卡片静止 |
-| `--shadow` | `0 14px 38px rgba(16,49,130,.12)` | 卡片 hover |
+| `--shadow-sm` | `0 2px 10px rgba(18,45,110,.06)` | 流程步骤卡静止 |
+| `--shadow` | `0 14px 38px rgba(16,49,130,.12)` | 通用悬浮（预留） |
+| 制度卡 hover | `0 6px 50px rgba(27,27,27,.1)` | 投影-3级（制度卡默认无阴影，仅 hover） |
 | `--shadow-lg` | `0 26px 60px rgba(10,36,97,.22)` | 弹窗 |
 | `--wrap` | `1064px` | 内容最大宽度（`.gov-wrap`，左右 padding 24px / ≤480 12px） |
 | `--ease` | `cubic-bezier(.22,1,.36,1)` | 全站统一缓动 |
@@ -117,8 +118,8 @@
 - **顶栏 `.gov-hero__top`**：徽标 `icon_marketingjianguan.png`（36×36）+ 单行署名「广州市市场监督管理局　监制」（`.gov-hero__authority strong` 20/500）。
 - **eyebrow `.gov-hero__eyebrow`**：玻璃胶囊，金色文字。
 - **标题 `.gov-hero__title`** + **说明 `.gov-hero__note`**。
-- **联系卡 `.gov-contact`**：玻璃卡，`width:480px; max-width:100%`，`justify-content:space-between`；两组 label/value 之间竖线分隔 `.gov-contact__div`。
-- **主按钮区 `.gov-hero__actions`**：仅一个主按钮，`max-width:480px`，按钮 `width:100%`（与联系卡同宽）。
+- **联系卡 `.gov-contact`**：玻璃卡，`width:480px; max-width:100%`；桌面**左对齐分组**（`gap:40px`，对齐 21184-1569），两组 label/value 之间竖线分隔 `.gov-contact__div`；`≤768` 转 `space-between` 整宽。
+- **主按钮区 `.gov-hero__actions`**：仅一个主按钮，`max-width:240px`（对齐 21184-1577），按钮 `width:100%`；`≤768` 解除上限、整宽。
 - **吉祥物 `.gov-hero__art`**：`jianguanrenyuan.png`，桌面贴底并排（宽 `clamp(170px,24vw,254px)`）；`≤768` 转为右下 10% 水印。
 
 ### 3.2 段标题 `.sec-head`
@@ -127,15 +128,17 @@
 ### 3.3 制度卡片 `.doc-card`（3 列网格 `.doc-grid`）
 - 结构：图标 chip `.doc-card__icon` → 标题 `.doc-card__title` → 描述 `.doc-card__lead` → 「查看详情」胶囊 `.doc-card__more`（居中，含箭头）→ 隐藏全文 `.doc-card__full`（弹窗数据源）。
 - **图标 chip**：40×40，圆角 10px，底 `--c-paper-2`，内含 24×24 inline SVG，色 `--c-bright`。
-  - 工作职责与规程 → 线性「用户」图标（stroke）
-  - 不合格商品下架退市制度 → 实心「盾牌 × 」
-  - 商品质量安全承诺书 → 实心「盾牌 ✓」
-- 交互：整卡可点（`role="button"`、`tabindex=0`），hover 上浮 6px + 顶部渐变条 `scaleX` 展开 + 阴影加深。
-- padding `20px 24px`；卡底 `--c-card`，描边 `--c-line`。
+  - 工作职责与规程 → 描边「用户」图标
+  - 不合格商品下架退市制度 → 描边「盾牌 × 」
+  - 商品质量安全承诺书 → 描边「盾牌 ✓」
+  - 三枚均为 Figma 21184-1544 导出的 stroke 矢量（stroke-width 2，色 `--c-bright` / #2F6BF0）
+- 状态（对齐 21188-2369）：**默认无描边、无阴影**；hover 上浮 6px + 投影 `0 6px 50px rgba(27,27,27,.1)`（投影-3级）。
+- 交互：整卡可点（`role="button"`、`tabindex=0`）。
+- padding `20px 24px`；卡底 `--c-card`，圆角 `--r-card`。
 
 ### 3.4 处理流程 `.flow-steps`（4 列网格）
 - 步骤 `.flow-step`：序号圆圈 `.flow-step__idx`（46px，白字，底 `--c-bright`）+ 标题 `h4` + 描述 `p`；卡底 `--c-card-2`。
-- 序号按设计稿为 **1 / 2 / 3 / 5**（「结案反馈」保留序号 5）。
+- 序号为连续 **1 / 2 / 3 / 4**（原设计稿跳号 1/2/3/5，按需求改为连续编号）。
 - 步间箭头：`.flow-step:not(:last-child)::after` 旋转边框生成「›」，位于卡间 42px 间隙居中。
 - **flow-note**：浅蓝信息条（底 `--c-paper`、字 `--c-royal`），文案「此服务站经广州市市场监督管理局批准设立」。
 
@@ -169,7 +172,7 @@
 ## 5. 动效
 
 - **入场 `rise`**（`@media (prefers-reduced-motion: no-preference)`）：Hero 文案子项与 `.doc-card` 依次淡入上移（stagger delay）。吉祥物不参与入场（由 opacity 过渡负责桌面↔手机切换）。
-- **Hover**：`.doc-card` 上浮 + 顶部 accent 条展开；`.gov-btn` 上浮 2px + 阴影增强；卡片箭头右移。
+- **Hover**：`.doc-card` 上浮 + 投影浮现（默认无阴影）；`.gov-btn` 上浮 2px + 阴影增强；卡片箭头右移。
 - **弹窗**：`modalFade`（遮罩）+ `modalRise`（面板上浮淡入）。
 
 ---
