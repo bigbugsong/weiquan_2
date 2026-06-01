@@ -64,7 +64,7 @@
 | `--glass-bg` | `rgba(255,255,255,.05)` | 玻璃卡背景（eyebrow / 联系卡） |
 | `--glass-border` | `rgba(255,255,255,.22)` | 玻璃卡描边 / 分隔线 |
 | `--grad-gold` | `linear-gradient(106.7deg,#f4c355,#ffe6a8)` | 主按钮金色渐变 |
-| `--c-gold` | `#f4c355` | 弹窗顶部条 / 金色基色 |
+| `--c-gold` | `#f4c355` | 金色基色（主按钮渐变 `--grad-gold` 基色） |
 
 > Figma 变量参考：`Text/Neutral/Primary #1b1b1b`、`Text/Neutral/Secondary #5f5f5f`、`Border/Neutral/Secondary #5f5f5f`、`Icon/Alpha/Black/50% #1b1b1b80`。站点对应位置已用上表蓝白 Token 表达。
 
@@ -144,13 +144,15 @@
 
 ### 3.5 页脚 `.gov-footer`
 白底单行居中：`唯品会维权站管理系统｜登录 →`；登录为 `[data-open="loginModal"]`。
+- **登录按钮 `.gov-footer__login`（对齐 21204-2583）**：胶囊（`padding:2px 8px` + `--r-pill`），「登录」14px/`--c-footer` + 14×14 `→` 内联 SVG（`.gov-footer__arrow`，gap 4）；默认无底，**hover 加 4% 黑底** `rgba(27,27,27,.04)`（文字不变色）。
 
 ### 3.6 按钮 `.gov-btn`
 胶囊，高 54，字 20/500。`--primary`：金渐变 + 金色阴影，文字 `--c-navy`；`--ghost`：透明白描边（当前页未使用，保留备用）。
 
 ### 3.7 弹窗 `.gov-modal`
-- 遮罩 `rgba(7,21,56,.58)` + 模糊；面板 `--shadow-lg`，顶部 4px 金条。
-- 标题区 `.gov-modal__title`（22/700）+ 滚动正文 `.gov-modal__body`。
+- 遮罩 `rgba(7,21,56,.58)` + 模糊；面板 `--shadow-lg`（**无金色顶条**）。
+- 标题区 `.gov-modal__title`（22/700）+ 滚动正文 `.gov-modal__body`；正文首个标题若与弹窗标题重复，由 `app.js` 自动去除（避免标题出现两次）。
+- 关闭按钮 `.gov-modal__close`：**默认无底、无描边圈**（纯 ×）；hover 加 4% 黑底 + 旋转 90°；仅键盘 `:focus-visible` 显描边圈。
 - 三个实例：`articleModal`（卡片全文，内容由 JS 注入）/ `feedbackModal`（意见反馈表单）/ `loginModal`（登录，`--narrow`）。
 - 交互（`js/app.js`）：`[data-open]` 开、`[data-close]` / 点遮罩 / Esc 关。
 
@@ -184,5 +186,5 @@
 | 徽标 | `images/icon_marketingjianguan.png` | 顶栏，36×36 |
 | 吉祥物 | `images/jianguanrenyuan.png` | Hero 右侧执法人员，桌面 ≤254 / 手机水印 |
 | 卡片图标 | inline SVG（`index.html` 内） | user / shield-x / shield-check，24×24，`currentColor` |
-| 箭头 / 分隔 | CSS（旋转边框 / `::after`） | 流程箭头、查看详情箭头、页脚箭头 |
+| 箭头 / 分隔 | 流程「›」与「查看详情」用 CSS（旋转边框 `::after`）；页脚登录「→」用内联 SVG | 流程 / 卡片 / 页脚 |
 | 背景纹理 | CSS 渐变 | Hero 斜纹 + 柔光，无图片依赖 |

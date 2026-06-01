@@ -323,17 +323,16 @@ button { font-family: inherit; cursor: pointer; }
     color: var(--c-footer); font-size: 14px; letter-spacing: .16em;
 }
 .gov-footer__sep { color: var(--c-line-strong); }
+/* 登录按钮（对齐 21204-2583）：默认无底；悬停加 4% 黑色胶囊底；箭头为 → 矢量 */
 .gov-footer__login {
-    display: inline-flex; align-items: center; gap: 7px;
+    display: inline-flex; align-items: center; gap: 4px;
+    padding: 2px 8px;
     color: var(--c-footer); text-decoration: none;
-    transition: color .3s var(--ease);
+    border-radius: var(--r-pill);
+    transition: background-color .3s var(--ease);
 }
-.gov-footer__login:hover { color: var(--c-link); }
-.gov-footer__arrow {
-    width: 6px; height: 6px;
-    border-top: 1.5px solid currentColor; border-right: 1.5px solid currentColor;
-    transform: rotate(45deg);
-}
+.gov-footer__login:hover { background: rgba(27, 27, 27, .04); }
+.gov-footer__arrow { display: block; width: 14px; height: 14px; }
 
 /* ===================== MODALS（统一 token） ===================== */
 .gov-modal {
@@ -351,7 +350,6 @@ button { font-family: inherit; cursor: pointer; }
     background: var(--c-card);
     border-radius: var(--r-card);
     box-shadow: var(--shadow-lg);
-    border-top: 4px solid var(--c-gold);
     animation: modalRise .42s var(--ease);
 }
 .gov-modal__panel--narrow { max-width: 440px; }
@@ -360,12 +358,15 @@ button { font-family: inherit; cursor: pointer; }
     width: 38px; height: 38px;
     font-size: 22px; line-height: 1;
     color: var(--c-ink-soft);
-    background: var(--c-paper);
-    border: 1px solid var(--c-line);
+    background: transparent;
+    border: 0;
     border-radius: 50%;
     transition: background-color .2s, color .2s, transform .3s var(--ease);
 }
-.gov-modal__close:hover { background: var(--c-paper-2); color: var(--c-navy); transform: rotate(90deg); }
+.gov-modal__close:hover { background: rgba(27, 27, 27, .04); color: var(--c-navy); transform: rotate(90deg); }
+/* 打开时自动聚焦不显描边圈；仅键盘 Tab 聚焦才显（可访问性） */
+.gov-modal__close:focus { outline: none; }
+.gov-modal__close:focus-visible { outline: 2px solid var(--c-bright); outline-offset: 2px; }
 .gov-modal__title {
     flex: 0 0 auto; margin: 0;
     padding: 24px 56px 16px 28px;
