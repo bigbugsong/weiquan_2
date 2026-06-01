@@ -195,13 +195,13 @@ button { font-family: inherit; cursor: pointer; }
     margin: 0;
     font-size: clamp(24px, 4vw, 32px);
     font-weight: 700; letter-spacing: .08em;
-    color: var(--c-navy);
+    color: #1b1b1b;
 }
 .sec-head__title::after {
     content: ""; display: block;
     width: 54px; height: 4px; margin: 14px auto 0;
     border-radius: 4px;
-    background: var(--c-accent);
+    background: var(--c-bright);
 }
 .sec-head__desc { margin: 14px 0 0; font-size: 14px; color: var(--c-ink-soft); }
 
@@ -269,13 +269,14 @@ button { font-family: inherit; cursor: pointer; }
     display: flex; flex-direction: column; align-items: center; text-align: center;
     padding: 32px 16px 28px;
     background: var(--c-card-2);
+    border: 1px solid var(--c-line);
     border-radius: var(--r-card);
 }
 .flow-step:not(:last-child)::after {
     content: ""; position: absolute; z-index: 2;
     right: -27px; top: 50%; margin-top: -6px;
     width: 11px; height: 11px;
-    border-top: 2px solid var(--c-sky); border-right: 2px solid var(--c-sky);
+    border-top: 2px solid rgba(27, 27, 27, .5); border-right: 2px solid rgba(27, 27, 27, .5);
     transform: rotate(45deg);
 }
 .flow-step__idx {
@@ -284,21 +285,19 @@ button { font-family: inherit; cursor: pointer; }
     font-size: 19px; font-weight: 800; font-variant-numeric: tabular-nums;
     color: #fff; background: var(--c-bright);
     border-radius: 50%;
-    box-shadow: 0 8px 18px rgba(47, 107, 240, .3);
 }
-.flow-step h4 { margin: 0 0 8px; font-size: 16px; font-weight: 600; color: var(--c-navy); letter-spacing: .04em; }
-.flow-step p { margin: 0; font-size: 13px; line-height: 1.6; color: var(--c-ink-soft); }
+.flow-step h4 { margin: 0 0 8px; font-size: 16px; font-weight: 600; color: var(--c-navy); }
+.flow-step p { margin: 0; font-size: 13px; line-height: 1.4; color: var(--c-ink-soft); }
 
 .flow-note {
-    margin: 30px auto 0;
-    max-width: 760px;
+    margin: 40px 0 0;
     padding: 15px 20px;
     text-align: center;
     font-size: 14px;
-    color: var(--c-royal);
-    background: var(--c-paper);
+    color: var(--c-ink-soft);
+    background: var(--c-paper-2);
     border: 1px solid var(--c-line-strong);
-    border-radius: var(--r-card);
+    border-radius: var(--r-field);
 }
 
 /* ===================== FOOTER（精简 · 浅底单行） ===================== */
