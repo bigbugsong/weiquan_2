@@ -92,13 +92,6 @@ button { font-family: inherit; cursor: pointer; }
     position: absolute; inset: 0; pointer-events: none;
     background: radial-gradient(58% 80% at 88% 2%, rgba(255, 255, 255, .14) 0%, transparent 58%);
 }
-.gov-hero__bg::before {
-    content: ""; position: absolute; inset: 0; opacity: .05;
-    background-image:
-        repeating-linear-gradient(60deg, #fff 0 1px, transparent 1px 10px),
-        repeating-linear-gradient(-60deg, #fff 0 1px, transparent 1px 10px);
-}
-
 /* 顶栏品牌行（透明，叠在 hero 渐变上） */
 .gov-hero__top {
     position: relative; z-index: 2;
@@ -236,19 +229,19 @@ button { font-family: inherit; cursor: pointer; }
     border-radius: 50%;
 }
 .doc-card__icon svg { display: block; width: 24px; height: 24px; }
-.doc-card__title { margin: 16px 0 0; font-size: 20px; font-weight: 600; letter-spacing: .02em; color: var(--c-navy); }
-.doc-card__lead { margin: 8px 0 18px; font-size: 13px; line-height: 1.8; color: var(--c-ink-soft); }
+.doc-card__title { margin: 16px 0 0; font-size: 21px; font-weight: 600; letter-spacing: .02em; color: #282828; }
+.doc-card__lead { margin: 8px 0 18px; font-size: 14px; line-height: 1.8; color: #5f5f5f; }
+/* 查看详情：默认无外框无底（对齐 21188-2159）；仅 hover 加 5% 蓝底 */
 .doc-card__more {
     margin-top: auto; align-self: center;
-    display: inline-flex; align-items: center; gap: 6px;
-    padding: 6px 14px;
+    display: inline-flex; align-items: center; gap: 4px;
+    padding: 5px 12px 5px 14px;
     font-size: 13px; font-weight: 400;
-    color: var(--c-link);
-    border: 1px solid rgba(30, 71, 176, .2);
+    color: var(--c-bright);
     border-radius: var(--r-pill);
-    transition: background-color .3s var(--ease), border-color .3s var(--ease);
+    transition: background-color .3s var(--ease);
 }
-.doc-card:hover .doc-card__more { background: var(--c-paper); border-color: rgba(30, 71, 176, .42); }
+.doc-card:hover .doc-card__more { background: rgba(47, 107, 240, .05); }
 .doc-card__more i {
     position: relative;
     width: 14px; height: 1.5px;
@@ -276,9 +269,7 @@ button { font-family: inherit; cursor: pointer; }
     display: flex; flex-direction: column; align-items: center; text-align: center;
     padding: 32px 16px 28px;
     background: var(--c-card-2);
-    border: 1px solid var(--c-line);
     border-radius: var(--r-card);
-    box-shadow: var(--shadow-sm);
 }
 .flow-step:not(:last-child)::after {
     content: ""; position: absolute; z-index: 2;
@@ -331,7 +322,7 @@ button { font-family: inherit; cursor: pointer; }
     border-radius: var(--r-pill);
     transition: background-color .3s var(--ease);
 }
-.gov-footer__login:hover { background: rgba(27, 27, 27, .04); }
+.gov-footer__login:hover { color: var(--c-link); }
 .gov-footer__arrow { display: block; width: 14px; height: 14px; }
 
 /* ===================== MODALS（统一 token） ===================== */

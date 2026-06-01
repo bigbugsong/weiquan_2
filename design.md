@@ -82,9 +82,9 @@
 | 联系卡 label / value | 12px / 18px | 400 / 500 | 电话 700，tabular-nums |
 | 段标题 sec-head | `clamp(24px,4vw,32px)` | 700 | letter-spacing .08em |
 | 段副标题 desc | 14px | 400 | `--c-ink-soft` |
-| 卡片标题 | 20px | 600 | `--c-navy` |
-| 卡片描述 lead | 13px | 400 | line-height 1.8 |
-| 「查看详情」 | 13px | 400 | `--c-link` |
+| 卡片标题 | 21px | 600 | `#282828`（letter-spacing .42px） |
+| 卡片描述 lead | 14px | 400 | line-height 1.8，`#5f5f5f` |
+| 「查看详情」 | 13px | 400 | `--c-bright`（默认无外框） |
 | 流程序号 | 19px | 800 | 白字 / tabular-nums |
 | 流程标题 / 描述 | 16px / 13px | 600 / 400 | — |
 | 主按钮 | 20px | 500 | — |
@@ -102,7 +102,7 @@
 | `--r-contact` | `8px` | 联系卡 |
 | `--r-field` | `10px` | 输入框 / 验证码 |
 | `--r-pill` | `999px` | eyebrow / 按钮 / 「查看详情」 |
-| `--shadow-sm` | `0 2px 10px rgba(18,45,110,.06)` | 流程步骤卡静止 |
+| `--shadow-sm` | `0 2px 10px rgba(18,45,110,.06)` | 小阴影（预留） |
 | `--shadow` | `0 14px 38px rgba(16,49,130,.12)` | 通用悬浮（预留） |
 | 制度卡 hover | `0 6px 50px rgba(27,27,27,.1)` | 投影-3级（制度卡默认无阴影，仅 hover） |
 | `--shadow-lg` | `0 26px 60px rgba(10,36,97,.22)` | 弹窗 |
@@ -114,7 +114,7 @@
 ## 3. 组件规范
 
 ### 3.1 Hero `.gov-hero`
-- 背景 `--grad-hero` + 右上柔光 + 斜纹纹理（`::before` opacity .05）。
+- 背景 `--grad-hero` + 右上径向柔光；**无网格/斜纹底纹**（按 21184-1544 取消）。
 - **顶栏 `.gov-hero__top`**：徽标 `icon_marketingjianguan.png`（36×36）+ 单行署名「广州市市场监督管理局　监制」（`.gov-hero__authority strong` 20/500）。
 - **eyebrow `.gov-hero__eyebrow`**：玻璃胶囊，金色文字。
 - **标题 `.gov-hero__title`** + **说明 `.gov-hero__note`**。
@@ -126,7 +126,7 @@
 居中：标题 `.sec-head__title`（`::after` 渲染 54×4 accent 横条，色 `--c-accent`）+ 副标题 `.sec-head__desc`。
 
 ### 3.3 制度卡片 `.doc-card`（3 列网格 `.doc-grid`）
-- 结构：图标 chip `.doc-card__icon` → 标题 `.doc-card__title` → 描述 `.doc-card__lead` → 「查看详情」胶囊 `.doc-card__more`（居中，含箭头）→ 隐藏全文 `.doc-card__full`（弹窗数据源）。
+- 结构：图标 chip `.doc-card__icon` → 标题 `.doc-card__title` → 描述 `.doc-card__lead` → 「查看详情」`.doc-card__more`（居中含 → 箭头；**默认无外框无底，仅 hover 加 5% 蓝底** `rgba(47,107,240,.05)`，对齐 21188-2159）→ 隐藏全文 `.doc-card__full`（弹窗数据源）。
 - **图标 chip**：40×40 **圆形**（`border-radius:50%`），底 `rgba(47,107,240,.1)`（品牌蓝 10%），内含 24×24 inline SVG，色 `--c-bright`（对齐 21188-2329）。
   - 工作职责与规程 → 描边「用户」图标
   - 不合格商品下架退市制度 → 描边「盾牌 × 」
@@ -137,14 +137,14 @@
 - padding `20px 24px`；卡底 `--c-card`，圆角 `--r-card`。
 
 ### 3.4 处理流程 `.flow-steps`（4 列网格）
-- 步骤 `.flow-step`：序号圆圈 `.flow-step__idx`（46px，白字，底 `--c-bright`）+ 标题 `h4` + 描述 `p`；卡底 `--c-card-2`。
+- 步骤 `.flow-step`：序号圆圈 `.flow-step__idx`（46px，白字，底 `--c-bright`）+ 标题 `h4` + 描述 `p`；卡底 `--c-card-2`，**无描边、无阴影**。
 - 序号为连续 **1 / 2 / 3 / 4**（原设计稿跳号 1/2/3/5，按需求改为连续编号）。
 - 步间箭头：`.flow-step:not(:last-child)::after` 旋转边框生成「›」，位于卡间 42px 间隙居中。
 - **flow-note**：浅蓝信息条（底 `--c-paper`、字 `--c-royal`），文案「此服务站经广州市市场监督管理局批准设立」。
 
 ### 3.5 页脚 `.gov-footer`
 白底单行居中：`唯品会维权站管理系统｜登录 →`；登录为 `[data-open="loginModal"]`。
-- **登录按钮 `.gov-footer__login`（对齐 21204-2583）**：胶囊（`padding:2px 8px` + `--r-pill`），「登录」14px/`--c-footer` + 14×14 `→` 内联 SVG（`.gov-footer__arrow`，gap 4）；默认无底，**hover 加 4% 黑底** `rgba(27,27,27,.04)`（文字不变色）。
+- **登录按钮 `.gov-footer__login`**：内边距 `2px 8px`，「登录」14px/`--c-footer` + 14×14 `→` 内联 SVG（`.gov-footer__arrow`，gap 4）；**默认与 hover 均无底纹**，hover 仅文字转 `--c-link`（按需求取消 hover 底纹）。
 
 ### 3.6 按钮 `.gov-btn`
 胶囊，高 54，字 20/500。`--primary`：金渐变 + 金色阴影，文字 `--c-navy`；`--ghost`：透明白描边（当前页未使用，保留备用）。
