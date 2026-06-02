@@ -348,10 +348,9 @@ button { font-family: inherit; cursor: pointer; }
     background: transparent;
     border: 0;
     border-radius: 50%;
-    transform-origin: center center;
-    transition: background-color .2s, color .2s, transform .3s var(--ease);
+    transition: background-color .2s, color .2s;
 }
-.gov-modal__close:hover { background: rgba(27, 27, 27, .04); color: var(--c-navy); transform: rotate(90deg); }
+.gov-modal__close:hover { background: rgba(27, 27, 27, .04); color: var(--c-navy); }
 /* 打开时自动聚焦不显描边圈；仅键盘 Tab 聚焦才显（可访问性） */
 .gov-modal__close:focus { outline: none; }
 .gov-modal__close:focus-visible { outline: 2px solid var(--c-bright); outline-offset: 2px; }

@@ -154,7 +154,7 @@
 ### 3.7 弹窗 `.gov-modal`
 - 遮罩 `rgba(7,21,56,.58)` + 模糊；面板 `--shadow-lg`（**无金色顶条**）。
 - 标题区 `.gov-modal__title`（22/700）+ 滚动正文 `.gov-modal__body`；正文首个标题若与弹窗标题重复，由 `app.js` 自动去除（避免标题出现两次）。
-- 关闭按钮 `.gov-modal__close`：**默认无底、无描边圈**（纯 ×，flex 居中）；hover 加 4% 黑底 + **绕中心旋转 90°（位置不变）**；仅键盘 `:focus-visible` 显描边圈。
+- 关闭按钮 `.gov-modal__close`：**默认无底、无描边圈**（纯 ×，flex 居中）；hover 仅加 4% 黑底 + 文字加深（**无旋转动效**）；仅键盘 `:focus-visible` 显描边圈。
 - 三个实例：`articleModal`（卡片全文，内容由 JS 注入）/ `feedbackModal`（意见反馈表单）/ `loginModal`（登录，`--narrow`）。
 - 交互（`js/app.js`）：`[data-open]` 开、`[data-close]` / 点遮罩 / Esc 关。
 
