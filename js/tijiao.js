@@ -26,6 +26,7 @@
             if (ret == 0) {
                 alert("您的信息已提交，谢谢。");
                 document.getElementById("textid").value = "";
+                govCharCount();
 
                 document.getElementById("verifyCode").value = "";
                 // $("#verifyCodeImg").attr("src", "/index.php?r=message/captcha");
@@ -67,20 +68,32 @@ function govClearErrors(formSel) {
 }
 function govSetError(sel, msg) {
     var $f = $(sel).addClass("is-error");
-    var $anchor = $f.closest(".gov-captcha");
+    var $anchor = $f.closest(".gov-captcha, .gov-textarea");
     if (!$anchor.length) { $anchor = $f; }
     var $next = $anchor.next(".gov-field__msg");
     if ($next.length) { $next.text(msg); }
     else { $('<p class="gov-field__msg"></p>').text(msg).insertAfter($anchor); }
 }
-/* 用户开始输入即清除该字段的红框与提示 */
+/* 反馈内容字数计数：右下角 56/500 */
+function govCharCount() {
+    var ta = document.getElementById("textid");
+    if (!ta) { return; }
+    var n = ta.value.length;
+    var c = document.getElementById("textidCount");
+    if (c) { c.textContent = n; }
+    var box = ta.parentNode ? ta.parentNode.querySelector(".gov-textarea__count") : null;
+    if (box) { box.className = "gov-textarea__count" + (n >= 500 ? " is-limit" : ""); }
+}
+/* 用户开始输入即清除该字段的红框与提示，并刷新字数 */
 $(function () {
+    govCharCount();
     /* jQuery 1.6.1 无 .on()，用 .delegate() 做事件委托 */
     $(document).delegate(".gov-field", "input", function () {
         $(this).removeClass("is-error");
-        var $a = $(this).closest(".gov-captcha");
+        var $a = $(this).closest(".gov-captcha, .gov-textarea");
         if (!$a.length) { $a = $(this); }
         $a.next(".gov-field__msg").remove();
+        if (this.id === "textid") { govCharCount(); }
     });
 });
 
