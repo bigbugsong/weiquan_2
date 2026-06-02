@@ -11,6 +11,14 @@
 
         function openModal(modal) {
             if (!modal) return;
+            // 投诉/反馈表单：每次打开重置为默认空状态（清空已填内容 + 校验红框/提示 + 字数）
+            if (modal.id === "feedbackModal") {
+                var fbForm = modal.querySelector("form");
+                if (fbForm && typeof fbForm.reset === "function") { fbForm.reset(); }
+                Array.prototype.forEach.call(modal.querySelectorAll(".gov-field.is-error"), function (f) { f.classList.remove("is-error"); });
+                Array.prototype.forEach.call(modal.querySelectorAll(".gov-field__msg"), function (m) { if (m.parentNode) { m.parentNode.removeChild(m); } });
+                if (typeof govCharCount === "function") { govCharCount(); }
+            }
             modal.classList.add("is-open");
             modal.setAttribute("aria-hidden", "false");
             body.classList.add("modal-lock");
