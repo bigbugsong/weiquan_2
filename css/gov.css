@@ -396,6 +396,10 @@ button { font-family: inherit; cursor: pointer; }
 textarea.gov-field { min-height: 120px; resize: vertical; line-height: 1.7; }
 .gov-field::placeholder { color: var(--c-ink-faint); }
 .gov-field:focus { border-color: var(--c-bright); box-shadow: 0 0 0 4px rgba(47, 107, 240, .14); }
+/* 表单校验：为空/填错红色外框 + 文字提示 */
+.gov-field.is-error { border-color: #e23d3d; }
+.gov-field.is-error:focus { border-color: #e23d3d; box-shadow: 0 0 0 4px rgba(226, 61, 61, .14); }
+.gov-field__msg { margin: 6px 0 0; font-size: 12px; line-height: 1.4; color: #e23d3d; }
 .gov-captcha { display: grid; grid-template-columns: 1fr 132px; gap: 12px; align-items: center; }
 .gov-captcha img {
     width: 132px; height: 48px; object-fit: cover;

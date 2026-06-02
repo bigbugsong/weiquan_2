@@ -1,39 +1,20 @@
 ﻿function Appeal(isGovCommit) {
+    govClearErrors("#form1");
     var textid = $("#textid").val().replace(/\*/g, " ").replace(/&/g, " ").replace(/`/g, " ").replace(/#/g, " ").replace(/'/g, " ");
-    if (textid == "") {
-        alert("请输入意见反馈内容！");
-        $("#textid").focus();
-        return false;
-    }
     var linkman = $("#linkman").val();
-    if (linkman == "") {
-        alert("联系人不能为空！");
-        $("#linkman").focus();
-        return false;
-    }
     var textPhone = $("#textPhone").val();
-    if (textPhone == "") {
-        alert("联系电话不能为空！");
-        $("#textPhone").focus();
-        return false;
-    }
+    var verifyCode = $("#verifyCode").val();
+    var firstErr = null;
+    if ($.trim(textid) == "") { govSetError("#textid", "请输入意见反馈内容"); firstErr = firstErr || "#textid"; }
+    if ($.trim(linkman) == "") { govSetError("#linkman", "请输入联系人"); firstErr = firstErr || "#linkman"; }
+    if ($.trim(textPhone) == "") { govSetError("#textPhone", "请输入联系电话"); firstErr = firstErr || "#textPhone"; }
+    else if (!/^\d{11}$/.test($.trim(textPhone))) { govSetError("#textPhone", "请输入11位手机号码"); firstErr = firstErr || "#textPhone"; }
     var type = 10;  //由后台决定
     if (isGovCommit == 1) {
     	type = 20;  //由后台决定
     }
-    /*
-    if (textPhone.length != 11) {
-        alert("手机号必须是11位数！");
-        $("#textPhone").focus();
-        return false;
-    }
-    */
-    var verifyCode = $("#verifyCode").val();
-    if (verifyCode == "") {
-        alert("验证码不能为空！");
-        $("#verifyCode").focus();
-        return false;
-    }
+    if ($.trim(verifyCode) == "") { govSetError("#verifyCode", "请输入验证码"); firstErr = firstErr || "#verifyCode"; }
+    if (firstErr) { $(firstErr).focus(); return false; }
 
     $.ajax({
         url: "index.php?r=Message/leave",
@@ -78,27 +59,42 @@
 
 
 
+/* ===== 表单校验视觉提示：红色外框 + 文字（提报 / 登录弹窗共用） ===== */
+function govClearErrors(formSel) {
+    var $form = $(formSel);
+    $form.find(".gov-field").removeClass("is-error");
+    $form.find(".gov-field__msg").remove();
+}
+function govSetError(sel, msg) {
+    var $f = $(sel).addClass("is-error");
+    var $anchor = $f.closest(".gov-captcha");
+    if (!$anchor.length) { $anchor = $f; }
+    var $next = $anchor.next(".gov-field__msg");
+    if ($next.length) { $next.text(msg); }
+    else { $('<p class="gov-field__msg"></p>').text(msg).insertAfter($anchor); }
+}
+/* 用户开始输入即清除该字段的红框与提示 */
+$(function () {
+    /* jQuery 1.6.1 无 .on()，用 .delegate() 做事件委托 */
+    $(document).delegate(".gov-field", "input", function () {
+        $(this).removeClass("is-error");
+        var $a = $(this).closest(".gov-captcha");
+        if (!$a.length) { $a = $(this); }
+        $a.next(".gov-field__msg").remove();
+    });
+});
+
 function PwdCheck() {
 
 
    
+    govClearErrors("#login-form");
     var pwd = $("#pwd").val();
-
     var username = $("#userName").val();
     var code = $("#code").val();
-
-
-
-    if (username == "") {
-        alert("请输入用户名！");
-        $("#userName").focus();
-        return false;
-    }
-    if (pwd == "") {
-        alert("请输入密码！");
-        $("#pwd").focus();
-        return false;
-    }
+    var firstErr = null;
+    if ($.trim(username) == "") { govSetError("#userName", "请输入用户名"); firstErr = firstErr || "#userName"; }
+    if ($.trim(pwd) == "") { govSetError("#pwd", "请输入密码"); firstErr = firstErr || "#pwd"; }
 
    /*
     var nopwd = "0";
@@ -122,12 +118,9 @@ function PwdCheck() {
     if (ispwd != null && autologin == "1") {
     }
     else {
-        if (code == "") {
-            alert("请输入验证码！");
-            $("#code").focus();
-            return false;
-        }
+        if ($.trim(code) == "") { govSetError("#code", "请输入验证码"); firstErr = firstErr || "#code"; }
     }
+    if (firstErr) { $(firstErr).focus(); return false; }
 
     $.ajax({
         url: "/index.php?r=admin/login",
