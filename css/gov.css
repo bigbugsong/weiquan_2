@@ -417,8 +417,9 @@ textarea.gov-field { min-height: 120px; resize: vertical; line-height: 1.7; }
     border: 1px solid var(--c-line-strong); border-radius: var(--r-field);
     cursor: pointer; background: #fff;
 }
-.gov-check { display: flex; align-items: center; gap: 8px; margin-top: 16px; font-size: 13px; color: var(--c-ink-soft); cursor: pointer; }
-.gov-check input { width: 16px; height: 16px; }
+/* `.gov-form label` 为 block，需提高特异性让勾选行恢复 flex 居中对齐 */
+.gov-form .gov-check { display: flex; align-items: center; gap: 8px; margin: 16px 0 0; font-size: 13px; color: var(--c-ink-soft); cursor: pointer; }
+.gov-form .gov-check input { width: 16px; height: 16px; margin: 0; flex: 0 0 auto; }
 .gov-form__submit { width: 100%; min-width: 0; margin-top: 24px; }
 
 /* ===================== ENTRANCE ANIMATION ===================== */
