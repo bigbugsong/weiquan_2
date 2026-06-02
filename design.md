@@ -161,6 +161,7 @@
 ### 3.8 表单 `.gov-form`
 `label`（13/600）+ `.gov-field`（min-height 48，圆角 `--r-field`，focus 蓝描边 + 4px 光晕）；验证码 `.gov-captcha` 为「输入框 + 132px 图」两列；提交按钮整宽。
 - **提交校验（提报 `Appeal()` / 登录 `PwdCheck()` 共用）**：为空 / 格式错的字段加 `.gov-field.is-error`（红色外框 `#e23d3d` + 红色光晕）并在下方插入红色提示 `.gov-field__msg`；校验不通过即聚焦首个错误字段并阻止提交；用户一旦在该字段输入即清除其红框与提示。手机号校验 11 位数字。辅助函数 `govSetError`/`govClearErrors` 在 `tijiao.js`（jQuery 1.6.1 用 `.delegate` 委托 input）。
+- **反馈内容字数限制**：`textarea#textid` `maxlength=500`；包裹 `.gov-textarea`，右下角 `.gov-textarea__count` 实时显示 `n/500`（`govCharCount` 随 input 更新、提交成功后重置），达 500 标红 `.is-limit`。
 
 ---
 

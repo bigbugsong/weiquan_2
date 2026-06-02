@@ -394,6 +394,17 @@ button { font-family: inherit; cursor: pointer; }
     transition: border-color .2s, box-shadow .2s;
 }
 textarea.gov-field { min-height: 120px; resize: vertical; line-height: 1.7; }
+/* 反馈内容字数计数（右下角 56/500） */
+.gov-textarea { position: relative; }
+.gov-textarea .gov-field { display: block; padding-bottom: 28px; }
+.gov-textarea__count {
+    position: absolute; right: 14px; bottom: 10px;
+    font-size: 12px; line-height: 1; color: var(--c-ink-faint);
+    pointer-events: none;
+    background: rgba(255, 255, 255, .9); padding: 2px 4px; border-radius: 4px;
+}
+.gov-textarea__count b { font-weight: 600; font-variant-numeric: tabular-nums; }
+.gov-textarea__count.is-limit { color: #e23d3d; }
 .gov-field::placeholder { color: var(--c-ink-faint); }
 .gov-field:focus { border-color: var(--c-bright); box-shadow: 0 0 0 4px rgba(47, 107, 240, .14); }
 /* 表单校验：为空/填错红色外框 + 文字提示 */
