@@ -317,7 +317,7 @@ button { font-family: inherit; cursor: pointer; }
     border-radius: var(--r-pill);
     transition: background-color .3s var(--ease);
 }
-.gov-footer__login:hover { color: var(--c-link); }
+.gov-footer__login:hover { color: var(--c-link); text-decoration: none; }
 .gov-footer__arrow { display: block; width: 14px; height: 14px; }
 
 /* ===================== MODALS（统一 token） ===================== */
@@ -341,12 +341,14 @@ button { font-family: inherit; cursor: pointer; }
 .gov-modal__panel--narrow { max-width: 440px; }
 .gov-modal__close {
     position: absolute; top: 14px; right: 16px;
+    display: inline-flex; align-items: center; justify-content: center;
     width: 38px; height: 38px;
     font-size: 22px; line-height: 1;
     color: var(--c-ink-soft);
     background: transparent;
     border: 0;
     border-radius: 50%;
+    transform-origin: center center;
     transition: background-color .2s, color .2s, transform .3s var(--ease);
 }
 .gov-modal__close:hover { background: rgba(27, 27, 27, .04); color: var(--c-navy); transform: rotate(90deg); }
