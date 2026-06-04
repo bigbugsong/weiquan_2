@@ -156,7 +156,7 @@
 - 标题区 `.gov-modal__title`（22/700）+ 滚动正文 `.gov-modal__body`；正文首个标题若与弹窗标题重复，由 `app.js` 自动去除（避免标题出现两次）。
 - 关闭按钮 `.gov-modal__close`：**默认无底、无描边圈**（纯 ×，flex 居中）；hover 仅加 4% 黑底 + 文字加深（**无旋转动效**）；仅键盘 `:focus-visible` 显描边圈。
 - 三个实例：`articleModal`（卡片全文，内容由 JS 注入）/ `feedbackModal`（意见反馈表单）/ `loginModal`（登录，`--narrow`）。
-- 交互（`js/app.js`）：`[data-open]` 开、`[data-close]` / 点遮罩 / Esc 关。
+- 交互（`js/app.js`）：`[data-open]` 开；关闭仅 `[data-close]`（关闭按钮）或 Esc，**点遮罩外区域不关闭**（避免误关丢失已填内容）。
 
 ### 3.8 表单 `.gov-form`
 `label`（13/600）+ `.gov-field`（min-height 48，圆角 `--r-field`，focus 蓝描边 + 4px 光晕）；验证码 `.gov-captcha` 为「输入框 + 132px 图」两列；提交按钮整宽。

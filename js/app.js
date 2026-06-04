@@ -77,11 +77,8 @@
             });
         });
 
-        /* close: [data-close], backdrop click, Esc */
+        /* close: 仅关闭按钮 [data-close]（点击弹窗外遮罩区域不关闭）；Esc 仍可关闭 */
         Array.prototype.forEach.call(document.querySelectorAll(".gov-modal"), function (modal) {
-            modal.addEventListener("click", function (e) {
-                if (e.target === modal) closeModal(modal);
-            });
             Array.prototype.forEach.call(modal.querySelectorAll("[data-close]"), function (btn) {
                 btn.addEventListener("click", function () { closeModal(modal); });
             });
